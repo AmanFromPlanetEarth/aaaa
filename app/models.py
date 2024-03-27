@@ -9,3 +9,12 @@ class TaskModel(Model):
     title: Mapped[str] 
     description: Mapped[str] 
     done: Mapped[bool] = mapped_column(Boolean, default=False)
+
+class UserModel(Model):
+    __tablename__= "users"
+
+    id:Mapped[int] = mapped_column(primary_key=True)
+    name:Mapped[str]
+    last_name:Mapped[str]
+    done:Mapped[bool] = mapped_column(Boolean, default=False)
+    

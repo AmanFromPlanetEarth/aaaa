@@ -11,22 +11,23 @@ from sqlalchemy import select
 from pydantic import BaseModel
 from database import Model, engine
 from routers import tasks_router
-from models import TaskModel
+from models import TaskModel, UserModel
+from urls import task_template
+
 
 URLS = [
     {"task_post": "127.0.0.1:8000/tasks/"}
 ]
 
 app = FastAPI() #экземпляр
-app.mount('/static', StaticFiles(directory='static'), name='static')
-templates = Jinja2Templates(directory='templates')
-
 app.include_router(tasks_router)
+app.include_router(task_template)
 
 
 
 if __name__ == '__main__':
     TaskModel.metadata.create_all(engine)
+    UserModel.metadata.create_all(engine)
     print('Start server')
     uvicorn.run('main:app', port=8000, reload=True)
     print('server stopped')
