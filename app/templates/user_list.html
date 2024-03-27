@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 style="text-align: center; background-color: brown;">Список пользователей</h1>
+
+    {% for user in users %}
+        <h5>ID: {{user.id}}</h5>
+        <h4>Имя: {{user.first_name}}</h4>
+        <h4>Фамилия: {{user.last_name}}</h4>
+        <hr>
+    {% endfor %}
+    
+</body>
+</html>
