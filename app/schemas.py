@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 
-class TaskCreateSchemas(BaseModel):
+class TaskCreateSchema(BaseModel):
     title:str
     description:str
+class TaskUpdateShemas(TaskCreateSchema):
+    status:bool

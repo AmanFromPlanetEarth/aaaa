@@ -16,5 +16,5 @@ class UserModel(Model):
     id:Mapped[int] = mapped_column(primary_key=True)
     name:Mapped[str]
     last_name:Mapped[str]
-    done:Mapped[bool] = mapped_column(Boolean, default=False)
+    status:Mapped[bool] = mapped_column(Boolean, default=False)
     
